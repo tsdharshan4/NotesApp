@@ -1,0 +1,78 @@
+@import "../../main-style.scss";
+
+.note-card-container {
+  position: relative;
+  background: white;
+  border-radius: 5px;
+  flex: 1;
+
+  box-shadow: 0px 2px 15px 2px rgba(black, 0.0686);
+  transition: box-shadow 1s ease-out;
+
+  &:hover {
+    cursor: pointer;
+    box-shadow: 0px 0px 0px 4px rgba(black, 0.0686);
+
+    .delete-button {
+      opacity: 1;
+      transform: scaleX(1);
+      transition-delay: 0.65s;
+    }
+  }
+
+  .note-card-content {
+    color: #555;
+    padding: 25px;
+
+    .note-card-title {
+      font-size: 25px;
+      font-weight: bold;
+      color: $purple;
+    }
+    .note-card-body {
+      max-height: 80px;
+      overflow: hidden;
+    }
+    .fade-out-truncation {
+      position: absolute;
+      bottom: 0;
+      height: 50%;
+      width: 100%;
+      pointer-events: none;
+      background: linear-gradient(
+        to bottom,
+        rgba(white, 0) 0%,
+        rgba(white, 0.8) 40%
+      );
+    }
+  }
+}
+.delete-button {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  height: 34px;
+  width: 34px;
+  background-color: $light-red;
+  border-radius: 4px;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s ease-out, transform 0.2s ease-out;
+
+  &:hover {
+    #delete {
+      background-color: darken($light-red, 5%);
+    }
+  }
+  &:active {
+    #delete {
+      background-color: darken($light-red, 8%);
+    }
+  }
+  transform: scale(0.35);
+
+  #delete {
+    color: red;
+    padding: 8px;
+  }
+}
